@@ -4,8 +4,15 @@ import * as Yup from 'yup';
 // Types
 import type {MainNavigationProp} from '../../../routes/stack/types';
 
+// Dispatch
+import {useAppDispatch} from '../../../store/hooks';
+
+// Actions
+import {setUser} from '../../../store/user/userSlice';
+
 export default function useSignIn() {
   const navigation = useNavigation<MainNavigationProp>();
+  const dispatch = useAppDispatch();
 
   const initialValues = {email: '', pass: ''};
 
@@ -13,6 +20,8 @@ export default function useSignIn() {
     values: typeof initialValues,
     setSubmitting: (isSubmitting: boolean) => void,
   ) => {
+    dispatch(setUser({email: values.email, token: '@TOKEN'}));
+
     setTimeout(() => {
       setSubmitting(false);
       navigation.replace('TabRouter');

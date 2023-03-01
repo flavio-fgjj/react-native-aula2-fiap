@@ -45,7 +45,14 @@ export default function MainRouter() {
         }}
         component={SignUp}
       />
-      <Stack.Screen name="TabRouter" component={TabRouter} />
+      <Stack.Screen
+        name="TabRouter"
+        options={{
+          title: 'FIAP',
+          headerTitleAlign: 'center',
+        }}
+        component={TabRouter}
+      />
     </Stack.Navigator>
   );
 }
