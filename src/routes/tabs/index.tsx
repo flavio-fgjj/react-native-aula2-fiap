@@ -13,6 +13,7 @@ const Tab = createMaterialTopTabNavigator<TopBarParamList>();
 export default function TabRouter() {
   return (
     <Tab.Navigator
+      initialRouteName="Maps"
       screenOptions={{
         tabBarLabelStyle: {
           fontSize: 12,
